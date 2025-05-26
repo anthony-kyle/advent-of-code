@@ -6,6 +6,10 @@ describe('Part 1:', function() {
   const cases = [
   ];
 
+  it ('Should have cases defined', function() {
+    assert.ok(cases.length > 0, 'Test cases should be defined');
+  });
+
   cases.forEach(function(testCase) {
     it(`Should return ${testCase[1]} for input "${testCase[0]}"`, function() {
       const filePath = `./inputs/${testCase[0]}`;
@@ -20,6 +24,10 @@ describe('Part 2:', function() {
   const cases = [
   ];
 
+  it ('Should have cases defined', function() {
+    assert.ok(cases.length > 0, 'Test cases should be defined');
+  });
+
   cases.forEach(function(testCase) {
     it(`Should return ${testCase[1]} for input "${testCase[0]}"`, function() {
       const filePath = `./inputs/${testCase[0]}`;
@@ -33,6 +41,7 @@ describe('Running Final Tests:', () => {
   const finalInstance = new DayClass('./inputs/testInput');
   const part1Result = finalInstance?.targetProp;
   const part2Result = finalInstance?.targetProp;
+
   console.log(chalk.blue('======================================================='));
   if (part1Result) {
     console.log('Part 1 Answer:', chalk.green(part1Result));
