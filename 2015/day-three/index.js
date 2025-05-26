@@ -12,7 +12,6 @@ export class DayClass {
   robotCoords = { x: 0, y: 0 };
 
   readFile() {
-    console.debug(`Reading file: ${this.filePath}`);
     const fileContents = fs.readFileSync(this.filePath, 'utf8');
     return fileContents.trim().split('');
   }
