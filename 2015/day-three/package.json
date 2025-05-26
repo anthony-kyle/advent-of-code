@@ -1,0 +1,18 @@
+{
+  "name": "day-one",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Day one advent of code 2015",
+  "main": "index.js",
+  "author": "Anthony Suarez-McGrath",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^11.5.0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1"
+  }
+}
