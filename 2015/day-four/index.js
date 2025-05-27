@@ -1,21 +1,34 @@
-import fs from 'fs';
+import crypto from 'crypto';
 
 export class DayClass {
-  filePath;
+  secret;
 
-  instructions;
+  targetLeadingString = '';
 
-  readFile() {
-    const fileContents = fs.readFileSync(this.filePath, 'utf8');
-    return fileContents.trim().split('\n');
+  targetProp;
+
+  getHash(i) {
+    const salt = this.secret + i.toString();
+    return crypto.createHash('md5').update(salt).digest('hex');
   }
 
-  parseInstructions() {
-    this.instructions = this.readFile();
+  findHash() {
+    let i = 0;
+    while (!this.targetProp) {
+      const hash = this.getHash(i);
+      if (hash.startsWith(this.targetLeadingString)) {
+        this.targetProp = i;
+      }
+
+      i++;
+    }
   }
 
-  constructor(filePath) {
-    this.filePath = filePath;
-    this.parseInstructions();
+  constructor(secret, numLeadingZeros = 5) {
+    this.secret = secret;
+    for (let i = 0; i < numLeadingZeros; i++) {
+      this.targetLeadingString += '0';
+    }
+    this.findHash();
   }
 }

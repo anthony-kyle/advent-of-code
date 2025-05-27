@@ -4,6 +4,8 @@ import { DayClass } from '../index.js'; // Ensure the main module is loaded
 
 describe('Part 1:', function() {
   const cases = [
+    ['abcdef', 609043],
+    ['pqrstuv', 1048970],
   ];
 
   it ('Should have cases defined', function() {
@@ -12,35 +14,18 @@ describe('Part 1:', function() {
 
   cases.forEach(function(testCase) {
     it(`Should return ${testCase[1]} for input "${testCase[0]}"`, function() {
-      const filePath = `./inputs/${testCase[0]}`;
-      const dayInstance = new DayClass(filePath);
+      const dayInstance = new DayClass(testCase[0], 5);
       assert.strictEqual(dayInstance?.targetProp, testCase[1]);
     });
   })
 
-});
-
-describe('Part 2:', function() {
-  const cases = [
-  ];
-
-  it ('Should have cases defined', function() {
-    assert.ok(cases.length > 0, 'Test cases should be defined');
-  });
-
-  cases.forEach(function(testCase) {
-    it(`Should return ${testCase[1]} for input "${testCase[0]}"`, function() {
-      const filePath = `./inputs/${testCase[0]}`;
-      const dayInstance = new DayClass(filePath);
-      assert.strictEqual(dayInstance?.targetProp, testCase[1]);
-    });
-  })
 });
 
 describe('Running Final Tests:', () => {
-  const finalInstance = new DayClass('./inputs/testInput');
+  const finalInstance = new DayClass('yzbqklnj', 5);
   const part1Result = finalInstance?.targetProp;
-  const part2Result = finalInstance?.targetProp;
+  const finalInstance2 = new DayClass('yzbqklnj', 6);
+  const part2Result = finalInstance2?.targetProp;
 
   console.log(chalk.blue('======================================================='));
   if (part1Result) {
